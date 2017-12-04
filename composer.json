@@ -1,0 +1,16 @@
+{
+    "name": "vortexgin/image-thumbnail",
+    "license": "GPL v3",
+    "type": "3rd party",
+    "description": "Create image thumbnail for showing on website",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/symfony": "2.8.*",
+        "imagine/imagine": "~0.5.0"
+    }
+}
