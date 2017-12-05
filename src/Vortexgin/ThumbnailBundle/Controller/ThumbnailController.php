@@ -57,7 +57,7 @@ class ThumbnailController extends Controller
             return new Response('Invalid url', Response::HTTP_BAD_REQUEST);
         }
 
-        $date = new DateTime();
+        $date = new \DateTime();
         $date->modify('+604800 seconds');
 
         $response = new Response();
