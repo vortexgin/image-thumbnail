@@ -59,6 +59,8 @@ class ThumbnailController extends Controller
 
         $response = new Response();
         $response->headers->set('Content-Type', 'image/jpeg');
+        $response->setSharedMaxAge(604800);
+        $response->headers->addCacheControlDirective('must-revalidate', true);
 
         $filename = md5(serialize($get)).'.jpg';
         if (file_exists(self::PATH.$filename)) {
