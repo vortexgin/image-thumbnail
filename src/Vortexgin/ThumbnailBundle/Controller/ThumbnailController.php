@@ -57,10 +57,14 @@ class ThumbnailController extends Controller
             return new Response('Invalid url', Response::HTTP_BAD_REQUEST);
         }
 
+        $date = new DateTime();
+        $date->modify('+604800 seconds');
+
         $response = new Response();
         $response->headers->set('Content-Type', 'image/jpeg');
-        $response->setSharedMaxAge(604800);
         $response->headers->addCacheControlDirective('must-revalidate', true);
+        $response->setSharedMaxAge(604800);
+        $response->setExpires($date);
 
         $filename = md5(serialize($get)).'.jpg';
         if (file_exists(self::PATH.$filename)) {
